@@ -1,0 +1,1 @@
+SELECT * FROM raw.food_orders LIMIT 10;
