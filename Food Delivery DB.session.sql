@@ -1,1 +1,1 @@
-SELECT * FROM raw.food_orders LIMIT 10;
+SELECT * FROM raw.customers LIMIT 10;
