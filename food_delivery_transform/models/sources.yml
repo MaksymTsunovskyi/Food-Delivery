@@ -1,11 +1,10 @@
 version: 2
-
 sources:
   - name: raw
     schema: raw
     tables:
       - name: customers
+      - name: food_orders
       - name: restaurants
       - name: couriers
-      - name: food_orders
       - name: delivery_routes

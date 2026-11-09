@@ -28,3 +28,70 @@ Happy modeling!
 [0m23:00:22.673049 [debug] [MainThread]: Command `dbt init` succeeded at 23:00:22.672031 after 136.43 seconds
 [0m23:00:22.673049 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F80E2FC290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F80DB67F90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F8085EA390>]}
 [0m23:00:22.674029 [debug] [MainThread]: Flushing usage events
+[0m23:51:18.260137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016FF170D450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016FF1713990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016FF1179890>]}
+
+
+============================== 23:51:18.264248 | 5096b8f0-2c10-4246-bbd5-ce61035a49bc ==============================
+[0m23:51:18.264248 [info ] [MainThread]: Running with dbt=1.7.15
+[0m23:51:18.265282 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\sa3\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt init food_delivery_transform', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m23:51:18.265818 [info ] [MainThread]: A project called food_delivery_transform already exists here.
+[0m23:51:18.267419 [debug] [MainThread]: Command `dbt init` succeeded at 23:51:18.267419 after 0.06 seconds
+[0m23:51:18.267954 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016FF0BADBD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016FF0BDB050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016FEB16B950>]}
+[0m23:51:18.268469 [debug] [MainThread]: Flushing usage events
+[0m09:11:52.301587 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000216F379F350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000216F2FF9D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000216F3706790>]}
+
+
+============================== 09:11:52.308730 | 20db6107-32ea-4578-8147-4b65d12443aa ==============================
+[0m09:11:52.308730 [info ] [MainThread]: Running with dbt=1.7.15
+[0m09:11:52.310729 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\sa3\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m09:11:52.310729 [info ] [MainThread]: dbt version: 1.7.15
+[0m09:11:52.311731 [info ] [MainThread]: python version: 3.11.0
+[0m09:11:52.311731 [info ] [MainThread]: python path: C:\Users\sa3\AppData\Local\Programs\Python\Python311\python.exe
+[0m09:11:52.312728 [info ] [MainThread]: os info: Windows-10-10.0.26300-SP0
+[0m09:11:52.387290 [info ] [MainThread]: Using profiles dir at C:\Users\sa3\.dbt
+[0m09:11:52.389473 [info ] [MainThread]: Using profiles.yml file at C:\Users\sa3\.dbt\profiles.yml
+[0m09:11:52.389473 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\sa3\Documents\GitHub\Food-Delivery\dbt_project.yml
+[0m09:11:52.391491 [info ] [MainThread]: adapter type: postgres
+[0m09:11:52.391491 [info ] [MainThread]: adapter version: 1.7.15
+[0m09:11:52.393025 [info ] [MainThread]: Configuration:
+[0m09:11:52.393025 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m09:11:52.393025 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m09:11:52.395039 [info ] [MainThread]: Required dependencies:
+[0m09:11:52.395039 [debug] [MainThread]: Executing "git --help"
+[0m09:11:52.441891 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   history    EXPERIMENTAL: Rewrite history\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m09:11:52.442966 [debug] [MainThread]: STDERR: "b''"
+[0m09:11:52.443488 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m09:11:52.443488 [info ] [MainThread]: Connection:
+[0m09:11:52.444023 [info ] [MainThread]:   host: localhost
+[0m09:11:52.444023 [info ] [MainThread]:   port: 5432
+[0m09:11:52.444548 [info ] [MainThread]:   user: admin
+[0m09:11:52.445073 [info ] [MainThread]:   database: food_delivery_dwh
+[0m09:11:52.445073 [info ] [MainThread]:   schema: analytics
+[0m09:11:52.445592 [info ] [MainThread]:   connect_timeout: 10
+[0m09:11:52.445592 [info ] [MainThread]:   role: None
+[0m09:11:52.446124 [info ] [MainThread]:   search_path: None
+[0m09:11:52.446124 [info ] [MainThread]:   keepalives_idle: 0
+[0m09:11:52.446633 [info ] [MainThread]:   sslmode: None
+[0m09:11:52.446633 [info ] [MainThread]:   sslcert: None
+[0m09:11:52.447170 [info ] [MainThread]:   sslkey: None
+[0m09:11:52.447170 [info ] [MainThread]:   sslrootcert: None
+[0m09:11:52.447170 [info ] [MainThread]:   application_name: dbt
+[0m09:11:52.447170 [info ] [MainThread]:   retries: 1
+[0m09:11:52.448683 [info ] [MainThread]: Registered adapter: postgres=1.7.15
+[0m09:11:52.449692 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m09:11:52.449692 [debug] [MainThread]: Using postgres connection "debug"
+[0m09:11:52.449692 [debug] [MainThread]: On debug: select 1 as id
+[0m09:11:52.449692 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m09:11:52.490348 [debug] [MainThread]: SQL status: SELECT 1 in 0.0 seconds
+[0m09:11:52.491352 [debug] [MainThread]: On debug: Close
+[0m09:11:52.491352 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m09:11:52.492857 [info ] [MainThread]: [31m1 check failed:[0m
+[0m09:11:52.492857 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\sa3\Documents\GitHub\Food-Delivery\dbt_project.yml> not found
+
+[0m09:11:52.493865 [debug] [MainThread]: Command `dbt debug` failed at 09:11:52.492857 after 0.27 seconds
+[0m09:11:52.493865 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m09:11:52.493865 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000216F33F81D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000216ED1A84D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000216F37BCB10>]}
+[0m09:11:52.494869 [debug] [MainThread]: Flushing usage events
