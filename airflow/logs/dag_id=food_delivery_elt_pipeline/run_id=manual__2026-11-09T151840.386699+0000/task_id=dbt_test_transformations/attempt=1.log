@@ -1,0 +1,48 @@
+[2026-11-09T15:36:07.212+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-09T15:36:07.235+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.dbt_test_transformations manual__2026-11-09T15:18:40.386699+00:00 [queued]>
+[2026-11-09T15:36:07.246+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.dbt_test_transformations manual__2026-11-09T15:18:40.386699+00:00 [queued]>
+[2026-11-09T15:36:07.247+0000] {taskinstance.py:2885} INFO - Starting attempt 1 of 1
+[2026-11-09T15:36:07.289+0000] {taskinstance.py:2908} INFO - Executing <Task(BashOperator): dbt_test_transformations> on 2026-11-09 15:18:40.386699+00:00
+[2026-11-09T15:36:07.300+0000] {logging_mixin.py:190} WARNING - /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=40543) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-09T15:36:07.299+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'food_delivery_elt_pipeline', 'dbt_test_transformations', 'manual__2026-11-09T15:18:40.386699+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/food_delivery_dag.py', '--cfg-path', '/tmp/tmp55bfuncd']
+[2026-11-09T15:36:07.301+0000] {standard_task_runner.py:72} INFO - Started process 40576 to run task
+[2026-11-09T15:36:07.301+0000] {standard_task_runner.py:105} INFO - Job 70: Subtask dbt_test_transformations
+[2026-11-09T15:36:07.384+0000] {task_command.py:467} INFO - Running <TaskInstance: food_delivery_elt_pipeline.dbt_test_transformations manual__2026-11-09T15:18:40.386699+00:00 [running]> on host KPP-L-777.kpp.corp.com
+[2026-11-09T15:36:07.486+0000] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='food_delivery_elt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_test_transformations' AIRFLOW_CTX_EXECUTION_DATE='2026-11-09T15:18:40.386699+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-09T15:18:40.386699+00:00'
+[2026-11-09T15:36:07.488+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2026-11-09T15:36:07.488+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2026-11-09T15:36:07.489+0000] {logging_mixin.py:190} INFO - Current task name:dbt_test_transformations state:running start_date:2026-11-09 15:36:07.235827+00:00
+[2026-11-09T15:36:07.489+0000] {logging_mixin.py:190} INFO - Dag name:food_delivery_elt_pipeline and current dag run status:running
+[2026-11-09T15:36:07.490+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2026-11-09T15:36:07.491+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-11-09T15:36:07.492+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt test --project-dir /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/food_delivery_transform --profiles-dir /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/food_delivery_transform --no-send-anonymous-usage-stats']
+[2026-11-09T15:36:07.505+0000] {subprocess.py:99} INFO - Output:
+[2026-11-09T15:36:20.541+0000] {subprocess.py:106} INFO - [0m15:36:20  Running with dbt=1.7.15
+[2026-11-09T15:36:21.404+0000] {subprocess.py:106} INFO - [0m15:36:21  Registered adapter: postgres=1.7.15
+[2026-11-09T15:36:23.810+0000] {subprocess.py:106} INFO - [0m15:36:23  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-11-09T15:36:23.811+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2026-11-09T15:36:23.811+0000] {subprocess.py:106} INFO - - models.food_delivery_transform.example
+[2026-11-09T15:36:23.869+0000] {subprocess.py:106} INFO - [0m15:36:23  Found 6 models, 2 tests, 5 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2026-11-09T15:36:23.875+0000] {subprocess.py:106} INFO - [0m15:36:23
+[2026-11-09T15:36:23.943+0000] {subprocess.py:106} INFO - [0m15:36:23  Concurrency: 4 threads (target='dev')
+[2026-11-09T15:36:23.944+0000] {subprocess.py:106} INFO - [0m15:36:23
+[2026-11-09T15:36:23.948+0000] {subprocess.py:106} INFO - [0m15:36:23  2 of 2 START test unique_stg_customers_customer_id ............................. [RUN]
+[2026-11-09T15:36:23.949+0000] {subprocess.py:106} INFO - [0m15:36:23  1 of 2 START test not_null_stg_customers_customer_id ........................... [RUN]
+[2026-11-09T15:36:24.023+0000] {subprocess.py:106} INFO - [0m15:36:24  1 of 2 PASS not_null_stg_customers_customer_id ................................. [[32mPASS[0m in 0.07s]
+[2026-11-09T15:36:24.024+0000] {subprocess.py:106} INFO - [0m15:36:24  2 of 2 PASS unique_stg_customers_customer_id ................................... [[32mPASS[0m in 0.07s]
+[2026-11-09T15:36:24.046+0000] {subprocess.py:106} INFO - [0m15:36:24
+[2026-11-09T15:36:24.047+0000] {subprocess.py:106} INFO - [0m15:36:24  Finished running 2 tests in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[2026-11-09T15:36:24.069+0000] {subprocess.py:106} INFO - [0m15:36:24
+[2026-11-09T15:36:24.070+0000] {subprocess.py:106} INFO - [0m15:36:24  [32mCompleted successfully[0m
+[2026-11-09T15:36:24.071+0000] {subprocess.py:106} INFO - [0m15:36:24
+[2026-11-09T15:36:24.072+0000] {subprocess.py:106} INFO - [0m15:36:24  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2026-11-09T15:36:25.011+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-11-09T15:36:25.055+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-11-09T15:36:25.055+0000] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=food_delivery_elt_pipeline, task_id=dbt_test_transformations, run_id=manual__2026-11-09T15:18:40.386699+00:00, execution_date=20261109T151840, start_date=20261109T153607, end_date=20261109T153625
+[2026-11-09T15:36:25.120+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2026-11-09T15:36:25.121+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2026-11-09T15:36:25.122+0000] {logging_mixin.py:190} INFO - Dag name:food_delivery_elt_pipeline queued_at:2026-11-09 15:33:23.827357+00:00
+[2026-11-09T15:36:25.122+0000] {logging_mixin.py:190} INFO - Task hostname:KPP-L-777.kpp.corp.com operator:BashOperator
+[2026-11-09T15:36:25.131+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-09T15:36:25.146+0000] {taskinstance.py:3925} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-09T15:36:25.148+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
