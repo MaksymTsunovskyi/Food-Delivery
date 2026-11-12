@@ -1,0 +1,56 @@
+[2026-11-09T15:34:35.875+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-09T15:34:35.897+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.dbt_run_transformations manual__2026-11-09T15:18:40.386699+00:00 [queued]>
+[2026-11-09T15:34:35.910+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.dbt_run_transformations manual__2026-11-09T15:18:40.386699+00:00 [queued]>
+[2026-11-09T15:34:35.911+0000] {taskinstance.py:2885} INFO - Starting attempt 2 of 2
+[2026-11-09T15:34:35.952+0000] {taskinstance.py:2908} INFO - Executing <Task(BashOperator): dbt_run_transformations> on 2026-11-09 15:18:40.386699+00:00
+[2026-11-09T15:34:35.962+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'food_delivery_elt_pipeline', 'dbt_run_transformations', 'manual__2026-11-09T15:18:40.386699+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/food_delivery_dag.py', '--cfg-path', '/tmp/tmpy6bx_k7n']
+[2026-11-09T15:34:35.962+0000] {logging_mixin.py:190} WARNING - /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=40411) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-09T15:34:35.964+0000] {standard_task_runner.py:105} INFO - Job 69: Subtask dbt_run_transformations
+[2026-11-09T15:34:35.964+0000] {standard_task_runner.py:72} INFO - Started process 40469 to run task
+[2026-11-09T15:34:36.045+0000] {task_command.py:467} INFO - Running <TaskInstance: food_delivery_elt_pipeline.dbt_run_transformations manual__2026-11-09T15:18:40.386699+00:00 [running]> on host KPP-L-777.kpp.corp.com
+[2026-11-09T15:34:36.148+0000] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='food_delivery_elt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_transformations' AIRFLOW_CTX_EXECUTION_DATE='2026-11-09T15:18:40.386699+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-09T15:18:40.386699+00:00'
+[2026-11-09T15:34:36.149+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2026-11-09T15:34:36.150+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2026-11-09T15:34:36.151+0000] {logging_mixin.py:190} INFO - Current task name:dbt_run_transformations state:running start_date:2026-11-09 15:34:35.898829+00:00
+[2026-11-09T15:34:36.151+0000] {logging_mixin.py:190} INFO - Dag name:food_delivery_elt_pipeline and current dag run status:running
+[2026-11-09T15:34:36.152+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2026-11-09T15:34:36.154+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-11-09T15:34:36.154+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt run --project-dir /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/food_delivery_transform --profiles-dir /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/food_delivery_transform --no-send-anonymous-usage-stats']
+[2026-11-09T15:34:36.166+0000] {subprocess.py:99} INFO - Output:
+[2026-11-09T15:34:49.053+0000] {subprocess.py:106} INFO - [0m15:34:49  Running with dbt=1.7.15
+[2026-11-09T15:34:50.088+0000] {subprocess.py:106} INFO - [0m15:34:50  Registered adapter: postgres=1.7.15
+[2026-11-09T15:34:52.941+0000] {subprocess.py:106} INFO - [0m15:34:52  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-11-09T15:34:52.942+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2026-11-09T15:34:52.942+0000] {subprocess.py:106} INFO - - models.food_delivery_transform.example
+[2026-11-09T15:34:53.001+0000] {subprocess.py:106} INFO - [0m15:34:53  Found 6 models, 2 tests, 5 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2026-11-09T15:34:53.004+0000] {subprocess.py:106} INFO - [0m15:34:53
+[2026-11-09T15:34:53.083+0000] {subprocess.py:106} INFO - [0m15:34:53  Concurrency: 4 threads (target='dev')
+[2026-11-09T15:34:53.083+0000] {subprocess.py:106} INFO - [0m15:34:53
+[2026-11-09T15:34:53.089+0000] {subprocess.py:106} INFO - [0m15:34:53  1 of 6 START sql view model analytics.stg_couriers ............................. [RUN]
+[2026-11-09T15:34:53.090+0000] {subprocess.py:106} INFO - [0m15:34:53  3 of 6 START sql view model analytics.stg_orders ............................... [RUN]
+[2026-11-09T15:34:53.091+0000] {subprocess.py:106} INFO - [0m15:34:53  4 of 6 START sql view model analytics.stg_restaurants .......................... [RUN]
+[2026-11-09T15:34:53.092+0000] {subprocess.py:106} INFO - [0m15:34:53  2 of 6 START sql view model analytics.stg_customers ............................ [RUN]
+[2026-11-09T15:34:53.252+0000] {subprocess.py:106} INFO - [0m15:34:53  4 of 6 OK created sql view model analytics.stg_restaurants ..................... [[32mCREATE VIEW[0m in 0.15s]
+[2026-11-09T15:34:53.255+0000] {subprocess.py:106} INFO - [0m15:34:53  3 of 6 OK created sql view model analytics.stg_orders .......................... [[32mCREATE VIEW[0m in 0.16s]
+[2026-11-09T15:34:53.264+0000] {subprocess.py:106} INFO - [0m15:34:53  1 of 6 OK created sql view model analytics.stg_couriers ........................ [[32mCREATE VIEW[0m in 0.17s]
+[2026-11-09T15:34:53.266+0000] {subprocess.py:106} INFO - [0m15:34:53  5 of 6 START sql view model analytics.stg_routes ............................... [RUN]
+[2026-11-09T15:34:53.270+0000] {subprocess.py:106} INFO - [0m15:34:53  2 of 6 OK created sql view model analytics.stg_customers ....................... [[32mCREATE VIEW[0m in 0.17s]
+[2026-11-09T15:34:53.278+0000] {subprocess.py:106} INFO - [0m15:34:53  6 of 6 START sql view model analytics.mart_orders .............................. [RUN]
+[2026-11-09T15:34:53.344+0000] {subprocess.py:106} INFO - [0m15:34:53  5 of 6 OK created sql view model analytics.stg_routes .......................... [[32mCREATE VIEW[0m in 0.07s]
+[2026-11-09T15:34:53.345+0000] {subprocess.py:106} INFO - [0m15:34:53  6 of 6 OK created sql view model analytics.mart_orders ......................... [[32mCREATE VIEW[0m in 0.06s]
+[2026-11-09T15:34:53.367+0000] {subprocess.py:106} INFO - [0m15:34:53
+[2026-11-09T15:34:53.368+0000] {subprocess.py:106} INFO - [0m15:34:53  Finished running 6 view models in 0 hours 0 minutes and 0.36 seconds (0.36s).
+[2026-11-09T15:34:53.389+0000] {subprocess.py:106} INFO - [0m15:34:53
+[2026-11-09T15:34:53.390+0000] {subprocess.py:106} INFO - [0m15:34:53  [32mCompleted successfully[0m
+[2026-11-09T15:34:53.391+0000] {subprocess.py:106} INFO - [0m15:34:53
+[2026-11-09T15:34:53.392+0000] {subprocess.py:106} INFO - [0m15:34:53  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[2026-11-09T15:34:54.705+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-11-09T15:34:54.750+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-11-09T15:34:54.751+0000] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=food_delivery_elt_pipeline, task_id=dbt_run_transformations, run_id=manual__2026-11-09T15:18:40.386699+00:00, execution_date=20261109T151840, start_date=20261109T153435, end_date=20261109T153454
+[2026-11-09T15:34:54.820+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2026-11-09T15:34:54.821+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2026-11-09T15:34:54.822+0000] {logging_mixin.py:190} INFO - Dag name:food_delivery_elt_pipeline queued_at:2026-11-09 15:33:23.827357+00:00
+[2026-11-09T15:34:54.823+0000] {logging_mixin.py:190} INFO - Task hostname:KPP-L-777.kpp.corp.com operator:BashOperator
+[2026-11-09T15:34:54.832+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-09T15:34:54.865+0000] {taskinstance.py:3925} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-09T15:34:54.878+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

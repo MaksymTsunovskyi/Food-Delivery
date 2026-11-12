@@ -1,0 +1,156 @@
+[2026-11-09T15:00:07.997+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-09T15:00:08.022+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.dbt_run_transformations manual__2026-11-09T14:28:04.367880+00:00 [queued]>
+[2026-11-09T15:00:08.034+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.dbt_run_transformations manual__2026-11-09T14:28:04.367880+00:00 [queued]>
+[2026-11-09T15:00:08.035+0000] {taskinstance.py:2885} INFO - Starting attempt 5 of 6
+[2026-11-09T15:00:08.075+0000] {taskinstance.py:2908} INFO - Executing <Task(BashOperator): dbt_run_transformations> on 2026-11-09 14:28:04.367880+00:00
+[2026-11-09T15:00:08.086+0000] {logging_mixin.py:190} WARNING - /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=36382) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-09T15:00:08.086+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'food_delivery_elt_pipeline', 'dbt_run_transformations', 'manual__2026-11-09T14:28:04.367880+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/food_delivery_dag.py', '--cfg-path', '/tmp/tmpggdqhged']
+[2026-11-09T15:00:08.087+0000] {standard_task_runner.py:72} INFO - Started process 36438 to run task
+[2026-11-09T15:00:08.088+0000] {standard_task_runner.py:105} INFO - Job 56: Subtask dbt_run_transformations
+[2026-11-09T15:00:08.158+0000] {task_command.py:467} INFO - Running <TaskInstance: food_delivery_elt_pipeline.dbt_run_transformations manual__2026-11-09T14:28:04.367880+00:00 [running]> on host KPP-L-777.kpp.corp.com
+[2026-11-09T15:00:08.257+0000] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='food_delivery_elt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_transformations' AIRFLOW_CTX_EXECUTION_DATE='2026-11-09T14:28:04.367880+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-09T14:28:04.367880+00:00'
+[2026-11-09T15:00:08.259+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2026-11-09T15:00:08.260+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2026-11-09T15:00:08.260+0000] {logging_mixin.py:190} INFO - Current task name:dbt_run_transformations state:running start_date:2026-11-09 15:00:08.023306+00:00
+[2026-11-09T15:00:08.261+0000] {logging_mixin.py:190} INFO - Dag name:food_delivery_elt_pipeline and current dag run status:running
+[2026-11-09T15:00:08.262+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2026-11-09T15:00:08.264+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-11-09T15:00:08.265+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python && dbt run --project-dir /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/food_delivery_transform --profiles-dir /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/food_delivery_transform']
+[2026-11-09T15:00:08.278+0000] {subprocess.py:99} INFO - Output:
+[2026-11-09T15:00:11.948+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2026-11-09T15:00:11.948+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/bin/dbt", line 5, in <module>
+[2026-11-09T15:00:11.949+0000] {subprocess.py:106} INFO -     from dbt.cli.main import cli
+[2026-11-09T15:00:11.950+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/cli/__init__.py", line 1, in <module>
+[2026-11-09T15:00:11.950+0000] {subprocess.py:106} INFO -     from .main import cli as dbt_cli  # noqa
+[2026-11-09T15:00:11.951+0000] {subprocess.py:106} INFO -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-11-09T15:00:11.952+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/cli/main.py", line 14, in <module>
+[2026-11-09T15:00:11.953+0000] {subprocess.py:106} INFO -     from dbt.cli import requires, params as p
+[2026-11-09T15:00:11.953+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/cli/requires.py", line 1, in <module>
+[2026-11-09T15:00:11.954+0000] {subprocess.py:106} INFO -     import dbt.tracking
+[2026-11-09T15:00:11.955+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/tracking.py", line 15, in <module>
+[2026-11-09T15:00:11.955+0000] {subprocess.py:106} INFO -     from dbt import version as dbt_version
+[2026-11-09T15:00:11.956+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/version.py", line 11, in <module>
+[2026-11-09T15:00:11.956+0000] {subprocess.py:106} INFO -     import dbt.semver
+[2026-11-09T15:00:11.957+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/semver.py", line 6, in <module>
+[2026-11-09T15:00:11.957+0000] {subprocess.py:106} INFO -     import dbt.utils
+[2026-11-09T15:00:11.958+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/utils.py", line 20, in <module>
+[2026-11-09T15:00:11.958+0000] {subprocess.py:106} INFO -     from dbt.events.types import RetryExternalCall, RecordRetryException
+[2026-11-09T15:00:11.959+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/events/__init__.py", line 1, in <module>
+[2026-11-09T15:00:11.959+0000] {subprocess.py:106} INFO -     from .adapter_endpoint import AdapterLogger  # noqa: F401
+[2026-11-09T15:00:11.960+0000] {subprocess.py:106} INFO -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-11-09T15:00:11.960+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/events/adapter_endpoint.py", line 3, in <module>
+[2026-11-09T15:00:11.961+0000] {subprocess.py:106} INFO -     from dbt.events.functions import fire_event, EVENT_MANAGER
+[2026-11-09T15:00:11.961+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/events/functions.py", line 2, in <module>
+[2026-11-09T15:00:11.962+0000] {subprocess.py:106} INFO -     from dbt.events.base_types import BaseEvent, EventLevel, EventMsg
+[2026-11-09T15:00:11.962+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/events/base_types.py", line 4, in <module>
+[2026-11-09T15:00:11.963+0000] {subprocess.py:106} INFO -     from dbt.events import types_pb2
+[2026-11-09T15:00:11.964+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/dbt/events/types_pb2.py", line 6, in <module>
+[2026-11-09T15:00:11.964+0000] {subprocess.py:106} INFO -     from google.protobuf import descriptor as _descriptor
+[2026-11-09T15:00:11.965+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/google/protobuf/descriptor.py", line 17, in <module>
+[2026-11-09T15:00:11.965+0000] {subprocess.py:106} INFO -     from google.protobuf.internal import api_implementation
+[2026-11-09T15:00:11.966+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/google/protobuf/internal/api_implementation.py", line 51, in <module>
+[2026-11-09T15:00:11.966+0000] {subprocess.py:106} INFO -     if _CanImport('google._upb._message'):
+[2026-11-09T15:00:11.967+0000] {subprocess.py:106} INFO -        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-11-09T15:00:11.968+0000] {subprocess.py:106} INFO -   File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/google/protobuf/internal/api_implementation.py", line 41, in _CanImport
+[2026-11-09T15:00:11.968+0000] {subprocess.py:106} INFO -     mod = importlib.import_module(mod_name)
+[2026-11-09T15:00:11.969+0000] {subprocess.py:106} INFO -   File "/usr/lib/python3.14/importlib/__init__.py", line 88, in import_module
+[2026-11-09T15:00:11.970+0000] {subprocess.py:106} INFO -     return _bootstrap._gcd_import(name[level:], package, level)
+[2026-11-09T15:00:11.970+0000] {subprocess.py:106} INFO -            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-11-09T15:00:11.971+0000] {subprocess.py:106} INFO - TypeError: Metaclasses with custom tp_new are not supported.
+[2026-11-09T15:00:12.023+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-11-09T15:00:12.038+0000] {taskinstance.py:3337} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+    ...<2 lines>...
+        logger=log,
+        ~~~~~~~~~~~
+    ).run(context=context, **execute_callable_kwargs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/baseoperator.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+        f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+    )
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-11-09T15:00:12.067+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2026-11-09T15:00:12.068+0000] {logging_mixin.py:190} INFO - Task start:2026-11-09 15:00:08.023306+00:00 end:2026-11-09 15:00:12.067418+00:00 duration:4.044112
+[2026-11-09T15:00:12.069+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): dbt_run_transformations> dag:<DAG: food_delivery_elt_pipeline> dagrun:<DagRun food_delivery_elt_pipeline @ 2026-11-09 14:28:04.367880+00:00: manual__2026-11-09T14:28:04.367880+00:00, state:running, queued_at: 2026-11-09 14:59:33.649772+00:00. externally triggered: True>
+[2026-11-09T15:00:12.070+0000] {logging_mixin.py:190} INFO - Failure caused by Bash command failed. The command returned a non-zero exit code 1.
+[2026-11-09T15:00:12.070+0000] {taskinstance.py:1242} INFO - Marking task as UP_FOR_RETRY. dag_id=food_delivery_elt_pipeline, task_id=dbt_run_transformations, run_id=manual__2026-11-09T14:28:04.367880+00:00, execution_date=20261109T142804, start_date=20261109T150008, end_date=20261109T150012
+[2026-11-09T15:00:12.162+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-11-09T15:00:12.163+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 56 for task dbt_run_transformations (Bash command failed. The command returned a non-zero exit code 1.; 36438)
+Traceback (most recent call last):
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ~~~~~~~~~~~~~~~~^
+        mark_success=args.mark_success,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        job_id=args.job_id,
+        ^^^^^^^^^^^^^^^^^^^
+        pool=args.pool,
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 3030, in _run_raw_task
+    return _run_raw_task(
+        ti=self,
+    ...<5 lines>...
+        session=session,
+    )
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 282, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self=ti,  # type: ignore[arg-type]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        session=session,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 3209, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+    ...<2 lines>...
+        logger=log,
+        ~~~~~~~~~~~
+    ).run(context=context, **execute_callable_kwargs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/baseoperator.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+        f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+    )
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-11-09T15:00:12.192+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-11-09T15:00:12.214+0000] {taskinstance.py:3925} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-09T15:00:12.216+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

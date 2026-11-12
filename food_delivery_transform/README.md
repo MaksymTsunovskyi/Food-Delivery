@@ -1,15 +1,51 @@
-Welcome to your new dbt project!
+# Modern Data Stack: Food Delivery Analytics Pipeline
 
-### Using the starter project
+Комплексний інженерний проєкт у рамках лабораторного практикуму з дисципліни **«Технології сховищ даних»**. Проєкт реалізує повний цикл сучасної парадигми **ELT (Extract, Load, Transform)** від генерації сирих транзакційних даних до побудови аналітичних вітрин, їх оркестрації та візуалізації.
 
-Try running the following commands:
-- dbt run
-- dbt test
+---
 
+## 🛠 Технологічний стек (Modern Data Stack)
+* **Мова програмування:** Python 3.9+ (бібліотеки Pandas, Faker, SQLAlchemy, PyArrow)[cite: 8, 13, 23]
+* **Контейнеризація:** Docker та Docker Compose (PostgreSQL 15 як аналітичне сховище DWH, Metabase)[cite: 20, 47]
+* **Оркестрація даних:** Apache Airflow (управління DAG-конвеєрами)[cite: 36, 40]
+* **Трансформація даних (Analytics Engineering):** dbt Core (моделювання за методологією Кімбола, тестування, генерація документації)[cite: 26, 27, 42]
+* **Візуалізація та Business Intelligence:** Metabase[cite: 46]
+* **Контроль версій:** Git / GitHub[cite: 6, 8]
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+---
+
+## 🏗 Архітектура та етапи проєкту
+
+1. **Data Ingestion (ЛР №1):** Python-скрипт (`data_generator.py`) генерує реляційні транзакційні дані з урахуванням бізнес-логіки варіанта 21 (Доставка їжі: клієнти, ресторани, кур'єри, замовлення, маршрути) із навмисними аномаліями (дублікати, `NULL`-значення) та зберігає їх у форматі Parquet (Data Lake)[cite: 13, 14, 17, 23].
+2. **Loading (ЛР №1):** Дані автоматично завантажуються в «сирий» шар сховища (**`raw`** schema) у PostgreSQL через SQLAlchemy[cite: 17, 23].
+3. **Transformation & Modeling (ЛР №2):** За допомогою `dbt` створено проміжний Staging-шар (`stg_*`) для очищення даних та фінальна розмірнісна модель **«Схема Зірка»** (`mart_orders`) із перевірками на унікальність та відсутність `NULL`[cite: 27, 30, 32, 42].
+4. **Orchestration (ЛР №3):** Процеси видобутку, завантаження та трансформації об'єднані в єдиний автоматизований граф **DAG** (`ecommerce_elt_pipeline`) в Apache Airflow[cite: 36, 40, 41].
+5. **BI & Governance (ЛР №4):** Сховище підключено до Metabase для побудови бізнес-дашбордів. За допомогою `dbt docs` згенеровано інтерактивну карту походження даних (**Data Lineage**)[cite: 46, 49, 51, 54].
+
+---
+
+## 📊 Результати проєкту
+
+### 1. Аналітичний дашборд у Metabase
+Дашборд містить ключові метрики сервісу доставки їжі:
+* **Динаміка замовлень** (лінійний графік обсягів замовлень у часі)[cite: 54].
+* **Топ-5 користувачів за кількістю замовлень** (стовпчаста діаграма активних клієнтів)[cite: 56].
+
+> ![Metabase Dashboard](images/metabase_dashboard.png)
+*(Примітка: переконайся, що твій скріншот дашборду лежить у папці `images/` під назвою `metabase_dashboard.png`)*[cite: 53, 54]
+
+### 2. Граф походження даних (Data Lineage) у dbt
+Візуалізація життєвого циклу даних від сирих джерел (`raw`) через трансформації (`stg`) до фінальних вітрин (`marts`):
+
+> ![Data Lineage](images/dbt_lineage.png)
+*(Примітка: твій скріншот графа з `dbt docs` збережено у папці `images/` під назвою `dbt_lineage.png`)*[cite: 53, 54]
+
+---
+
+## 🚀 Інструкція з запуску проєкту
+
+1. Клонуйте репозиторій та активуйте віртуальне середовище:
+   ```bash
+   git clone [https://github.com/твій_логін/modern-data-stack-ecommerce.git](https://github.com/твій_логін/modern-data-stack-ecommerce.git)
+   cd modern-data-stack-ecommerce
+   source venv_linux/bin/activate

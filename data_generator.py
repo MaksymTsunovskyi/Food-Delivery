@@ -1,8 +1,9 @@
-import pandas as pd
-from faker import Faker
-import random
+import io
 import os
-from sqlalchemy import create_engine, text
+import random
+from faker import Faker
+import pandas as pd
+import psycopg2
 
 # Ініціалізація генератора
 fake = Faker('uk_UA')
@@ -18,7 +19,7 @@ print("Починаємо генерацію даних...")
 def generate_customers(n=500):
     data = []
     for i in range(1, n + 1):
-        email = fake.email() if random.random() > 0.1 else None # 10% пропущених email для імітації брудних даних
+        email = fake.email() if random.random() > 0.1 else None # 10% NULL
         data.append({
             'customer_id': i,
             'full_name': fake.name(),
@@ -104,23 +105,59 @@ df_routes.to_parquet('data_lake/raw_routes.parquet', index=False)
 print("Генерація файлів Parquet успішно завершена. Завантаження у PostgreSQL...")
 
 # ==========================================
-# 3. ЗАВАНТАЖЕННЯ (LOAD) У DWH
+# 3. ПРЯМЕ ЗАВАНТАЖЕННЯ (COPY) У DWH БЕЗ PANDAS TO_SQL
 # ==========================================
-DB_URL = "postgresql+psycopg2://admin:adminpassword@localhost:5432/food_delivery_dwh"
-engine = create_engine(DB_URL)
+def save_df_to_postgres(df, table_name, cur):
+    cur.execute(f"DROP TABLE IF EXISTS raw.{table_name} CASCADE;")
+    
+    type_map = {
+        'int64': 'BIGINT',
+        'float64': 'DOUBLE PRECISION',
+        'bool': 'BOOLEAN',
+        'datetime64[ns]': 'TIMESTAMP'
+    }
+    
+    cols = []
+    for col_name, dtype in df.dtypes.items():
+        pg_type = type_map.get(str(dtype), 'TEXT')
+        cols.append(f'"{col_name}" {pg_type}')
+        
+    create_sql = f"CREATE TABLE raw.{table_name} (\n    " + ",\n    ".join(cols) + "\n);"
+    cur.execute(create_sql)
+    
+    buffer = io.StringIO()
+    df.to_csv(buffer, index=False, header=True)
+    buffer.seek(0)
+    
+    cur.copy_expert(f"COPY raw.{table_name} FROM STDIN WITH CSV HEADER NULL ''", buffer)
 
 def load_data_to_dwh():
-    with engine.connect() as conn:
-        conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw;"))
-        conn.commit()
+    conn = psycopg2.connect(
+        dbname="food_delivery_dwh",
+        user="admin",
+        password="adminpassword",
+        host="localhost",
+        port=5432
+    )
+    cur = conn.cursor()
+    
+    cur.execute("CREATE SCHEMA IF NOT EXISTS raw;")
+    
+    tables = {
+        'customers': df_customers,
+        'food_orders': df_orders,
+        'restaurants': df_restaurants,
+        'couriers': df_couriers,
+        'delivery_routes': df_routes
+    }
+    
+    for table_name, df in tables.items():
+        print(f"Завантаження {table_name}...")
+        save_df_to_postgres(df, table_name, cur)
         
-        # if_exists='replace' імітує повне перезавантаження
-        df_customers.to_sql('customers', engine, schema='raw', if_exists='replace', index=False)
-        df_restaurants.to_sql('restaurants', engine, schema='raw', if_exists='replace', index=False)
-        df_couriers.to_sql('couriers', engine, schema='raw', if_exists='replace', index=False)
-        df_orders.to_sql('food_orders', engine, schema='raw', if_exists='replace', index=False)
-        df_routes.to_sql('delivery_routes', engine, schema='raw', if_exists='replace', index=False)
-        
+    conn.commit()
+    cur.close()
+    conn.close()
     print("Дані успішно завантажені у схему 'raw'!")
 
 if __name__ == "__main__":

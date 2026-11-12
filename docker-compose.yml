@@ -1,14 +1,25 @@
 version: '3.8'
 services:
-  dwh_postgres:
+  postgres: # Назва вашого сервісу БД (може бути dwh_postgres)
     image: postgres:15
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: adminpassword
-      POSTGRES_DB: food_delivery_dwh
+      POSTGRES_DB: food_delivery_dwh # Ваша БД
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  metabase:
+    image: metabase/metabase:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres # Вкажіть тут точну назву вашого сервісу БД з рядка 3
+    volumes:
+      - metabase-data:/metabase-data
+
 volumes:
   pgdata:
+  metabase-data:

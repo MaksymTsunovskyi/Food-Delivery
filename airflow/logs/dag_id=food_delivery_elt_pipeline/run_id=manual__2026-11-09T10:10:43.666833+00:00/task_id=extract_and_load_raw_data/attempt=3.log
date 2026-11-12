@@ -1,0 +1,198 @@
+[2026-11-09T13:17:31.686+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-09T13:17:31.709+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.extract_and_load_raw_data manual__2026-11-09T10:10:43.666833+00:00 [queued]>
+[2026-11-09T13:17:31.720+0000] {taskinstance.py:2632} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: food_delivery_elt_pipeline.extract_and_load_raw_data manual__2026-11-09T10:10:43.666833+00:00 [queued]>
+[2026-11-09T13:17:31.721+0000] {taskinstance.py:2885} INFO - Starting attempt 3 of 4
+[2026-11-09T13:17:31.766+0000] {taskinstance.py:2908} INFO - Executing <Task(PythonOperator): extract_and_load_raw_data> on 2026-11-09 10:10:43.666833+00:00
+[2026-11-09T13:17:31.777+0000] {logging_mixin.py:190} WARNING - /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=28092) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-09T13:17:31.777+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'food_delivery_elt_pipeline', 'extract_and_load_raw_data', 'manual__2026-11-09T10:10:43.666833+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/food_delivery_dag.py', '--cfg-path', '/tmp/tmpk6pwe8a7']
+[2026-11-09T13:17:31.778+0000] {standard_task_runner.py:72} INFO - Started process 28126 to run task
+[2026-11-09T13:17:31.779+0000] {standard_task_runner.py:105} INFO - Job 24: Subtask extract_and_load_raw_data
+[2026-11-09T13:17:31.860+0000] {task_command.py:467} INFO - Running <TaskInstance: food_delivery_elt_pipeline.extract_and_load_raw_data manual__2026-11-09T10:10:43.666833+00:00 [running]> on host KPP-L-777.kpp.corp.com
+[2026-11-09T13:17:31.960+0000] {taskinstance.py:3158} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='food_delivery_elt_pipeline' AIRFLOW_CTX_TASK_ID='extract_and_load_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2026-11-09T10:10:43.666833+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-09T10:10:43.666833+00:00'
+[2026-11-09T13:17:31.962+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2026-11-09T13:17:31.963+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2026-11-09T13:17:31.963+0000] {logging_mixin.py:190} INFO - Current task name:extract_and_load_raw_data state:running start_date:2026-11-09 13:17:31.710474+00:00
+[2026-11-09T13:17:31.964+0000] {logging_mixin.py:190} INFO - Dag name:food_delivery_elt_pipeline and current dag run status:running
+[2026-11-09T13:17:31.965+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2026-11-09T13:17:31.983+0000] {logging_mixin.py:190} INFO - Завантаження customers...
+[2026-11-09T13:17:31.988+0000] {logging_mixin.py:190} WARNING - /mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/airflow/dags/scripts/data_generator.py:117 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-11-09T13:17:31.992+0000] {taskinstance.py:3337} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+    ...<2 lines>...
+        logger=log,
+        ~~~~~~~~~~~
+    ).run(context=context, **execute_callable_kwargs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/baseoperator.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/airflow/dags/scripts/data_generator.py", line 117, in load_data_to_dwh
+    df_customers.to_sql('customers', conn, schema='raw', if_exists='replace', index=False)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/core/generic.py", line 3074, in to_sql
+    return sql.to_sql(
+           ~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<8 lines>...
+        method=method,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 891, in to_sql
+    return pandas_sql.to_sql(
+           ~~~~~~~~~~~~~~~~~^
+        frame,
+        ^^^^^^
+    ...<9 lines>...
+        **engine_kwargs,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 2995, in to_sql
+    table.create()
+    ~~~~~~~~~~~~^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 1036, in create
+    if self.exists():
+       ~~~~~~~~~~~^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 1022, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 3010, in has_table
+    return len(self.execute(query, [name]).fetchall()) > 0
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 2800, in execute
+    cur = self.con.cursor()
+          ^^^^^^^^^^^^^^^
+AttributeError: 'Connection' object has no attribute 'cursor'
+[2026-11-09T13:17:32.054+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2026-11-09T13:17:32.055+0000] {logging_mixin.py:190} INFO - Task start:2026-11-09 13:17:31.710474+00:00 end:2026-11-09 13:17:32.054116+00:00 duration:0.343642
+[2026-11-09T13:17:32.056+0000] {logging_mixin.py:190} INFO - Task:<Task(PythonOperator): extract_and_load_raw_data> dag:<DAG: food_delivery_elt_pipeline> dagrun:<DagRun food_delivery_elt_pipeline @ 2026-11-09 10:10:43.666833+00:00: manual__2026-11-09T10:10:43.666833+00:00, state:running, queued_at: 2026-11-09 13:15:51.352214+00:00. externally triggered: True>
+[2026-11-09T13:17:32.056+0000] {logging_mixin.py:190} INFO - Failure caused by 'Connection' object has no attribute 'cursor'
+[2026-11-09T13:17:32.057+0000] {taskinstance.py:1242} INFO - Marking task as UP_FOR_RETRY. dag_id=food_delivery_elt_pipeline, task_id=extract_and_load_raw_data, run_id=manual__2026-11-09T10:10:43.666833+00:00, execution_date=20261109T101043, start_date=20261109T131731, end_date=20261109T131732
+[2026-11-09T13:17:32.141+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-11-09T13:17:32.142+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 24 for task extract_and_load_raw_data ('Connection' object has no attribute 'cursor'; 28126)
+Traceback (most recent call last):
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ~~~~~~~~~~~~~~~~^
+        mark_success=args.mark_success,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        job_id=args.job_id,
+        ^^^^^^^^^^^^^^^^^^^
+        pool=args.pool,
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 3030, in _run_raw_task
+    return _run_raw_task(
+        ti=self,
+    ...<5 lines>...
+        session=session,
+    )
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 282, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self=ti,  # type: ignore[arg-type]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        session=session,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 3209, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 776, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/taskinstance.py", line 742, in _execute_callable
+    return ExecutionCallableRunner(
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+    ...<2 lines>...
+        logger=log,
+        ~~~~~~~~~~~
+    ).run(context=context, **execute_callable_kwargs)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/models/baseoperator.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/airflow/dags/scripts/data_generator.py", line 117, in load_data_to_dwh
+    df_customers.to_sql('customers', conn, schema='raw', if_exists='replace', index=False)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/core/generic.py", line 3074, in to_sql
+    return sql.to_sql(
+           ~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<8 lines>...
+        method=method,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 891, in to_sql
+    return pandas_sql.to_sql(
+           ~~~~~~~~~~~~~~~~~^
+        frame,
+        ^^^^^^
+    ...<9 lines>...
+        **engine_kwargs,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 2995, in to_sql
+    table.create()
+    ~~~~~~~~~~~~^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 1036, in create
+    if self.exists():
+       ~~~~~~~~~~~^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 1022, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 3010, in has_table
+    return len(self.execute(query, [name]).fetchall()) > 0
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/sa3/Documents/GitHub/Food-Delivery/venv_linux/lib/python3.14/site-packages/pandas/io/sql.py", line 2800, in execute
+    cur = self.con.cursor()
+          ^^^^^^^^^^^^^^^
+AttributeError: 'Connection' object has no attribute 'cursor'
+[2026-11-09T13:17:32.179+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-11-09T13:17:32.201+0000] {taskinstance.py:3925} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-09T13:17:32.203+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

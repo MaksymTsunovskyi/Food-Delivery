@@ -6,6 +6,10 @@ name: 'food_delivery_transform'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
+name: 'food_delivery_transform'
+version: '1.0.0'
+config-version: 2
+
 profile: 'food_delivery_transform'
 
 # These configurations specify where dbt should look for different types of files.
